@@ -1,15 +1,9 @@
-from os import urandom
-
 from flask import Flask
+app = Flask(__name__) # Q0: Where have you seen similar syntax in other langs?
 
-app = Flask(__name__)
+@app.route("/") # Q1: What points of reference do you have for meaning of '/'?
+def hello_world():
+    print(__name__) # Q2: Where will this print to? Q3: What will it print?
+    return "No hablo queso!"  # Q3: Will this appear anywhere? How u know?
 
-# after Flask app init to avoid circular imports
-from app import app
-
-# secret key for session (32 random bytes)
-app.secret_key = urandom(32)
-
-# false in deliverable
-app.debug = True
-app.run()
+app.run()  # Q4: Where have you seen similar construcs in other languages?
